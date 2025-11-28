@@ -57,7 +57,7 @@ const Contact = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="bg-primary text-primary-foreground py-16">
+      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-lg text-primary-foreground/90 max-w-2xl">
@@ -74,8 +74,8 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-secondary" />
+                    <div className="bg-accent/10 p-3 rounded-lg">
+                      <Phone className="h-6 w-6 text-accent" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Phone</h3>
@@ -89,8 +89,8 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-secondary" />
+                    <div className="bg-accent/10 p-3 rounded-lg">
+                      <Mail className="h-6 w-6 text-accent" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
@@ -104,8 +104,8 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-secondary" />
+                    <div className="bg-accent/10 p-3 rounded-lg">
+                      <MapPin className="h-6 w-6 text-accent" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Location</h3>
@@ -119,8 +119,8 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/10 p-3 rounded-lg">
-                      <Clock className="h-6 w-6 text-secondary" />
+                    <div className="bg-accent/10 p-3 rounded-lg">
+                      <Clock className="h-6 w-6 text-accent" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Emergency Service</h3>
@@ -223,7 +223,7 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
+                    <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90">
                       Submit Request
                     </Button>
                   </form>

@@ -19,7 +19,7 @@ const ServiceDetail = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="bg-primary text-primary-foreground py-16">
+      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
           <p className="text-lg text-primary-foreground/90 max-w-2xl">
@@ -43,7 +43,7 @@ const ServiceDetail = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 {service.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -55,10 +55,10 @@ const ServiceDetail = () => {
               <h2 className="text-2xl font-bold mb-6">Our Process</h2>
               <div className="space-y-4">
                 {service.process.map((step, index) => (
-                  <Card key={index} className="border-l-4 border-l-secondary">
+                  <Card key={index} className="border-l-4 border-l-accent">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-4">
-                        <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
+                        <div className="bg-accent text-accent-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
                           {index + 1}
                         </div>
                         <p className="pt-1">{step}</p>
@@ -75,7 +75,7 @@ const ServiceDetail = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 {service.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3 bg-muted/50 p-4 rounded-lg">
-                    <CheckCircle2 className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <span>{benefit}</span>
                   </div>
                 ))}
@@ -90,7 +90,7 @@ const ServiceDetail = () => {
                   Get in touch with us today to schedule your {service.title.toLowerCase()} service.
                 </p>
                 <Link to="/contact">
-                  <Button variant="secondary" size="lg" className="gap-2">
+                  <Button size="lg" className="gap-2 bg-accent hover:bg-accent/90">
                     Request Service
                     <ArrowRight className="h-4 w-4" />
                   </Button>
