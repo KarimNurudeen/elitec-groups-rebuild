@@ -46,7 +46,7 @@ const Offers = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="bg-primary text-primary-foreground py-16">
+      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Special Offers</h1>
           <p className="text-lg text-primary-foreground/90 max-w-2xl">
@@ -62,12 +62,12 @@ const Offers = () => {
               <Card 
                 key={offer.id} 
                 className={`relative overflow-hidden ${
-                  offer.featured ? 'border-2 border-secondary' : ''
+                  offer.featured ? 'border-2 border-accent' : ''
                 }`}
               >
                 {offer.featured && (
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-secondary text-secondary-foreground gap-1">
+                    <Badge className="bg-accent text-accent-foreground gap-1">
                       <Star className="h-3 w-3 fill-current" />
                       Featured
                     </Badge>
@@ -76,7 +76,7 @@ const Offers = () => {
                 
                 <CardHeader>
                   <div className="mb-4">
-                    <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-lg">
+                    <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-lg">
                       <Percent className="h-5 w-5" />
                       <span className="font-bold text-xl">{offer.discount}</span>
                     </div>

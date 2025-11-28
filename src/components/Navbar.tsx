@@ -21,8 +21,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary">
-              Elitec <span className="text-secondary">Groups</span>
+            <div className="text-2xl font-bold">
+              <span className="text-primary">ELITEC</span> <span className="text-accent">GROUP</span>
             </div>
           </Link>
 
@@ -39,7 +39,7 @@ export const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button size="sm" className="gap-2">
+            <Button size="sm" className="gap-2 bg-accent hover:bg-accent/90">
               <Phone className="h-4 w-4" />
               Call Us
             </Button>

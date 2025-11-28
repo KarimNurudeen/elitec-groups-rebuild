@@ -59,7 +59,7 @@ const Index = () => {
                   "Scheduled maintenance programs",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-secondary flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                     <span className="text-base">{item}</span>
                   </div>
                 ))}
@@ -72,7 +72,7 @@ const Index = () => {
                 Request a service quote today and experience the Elitec difference.
               </p>
               <Link to="/contact">
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto bg-accent hover:bg-accent/90">
                   Request a Quote
                 </Button>
               </Link>
