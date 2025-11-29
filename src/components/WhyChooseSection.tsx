@@ -1,3 +1,7 @@
+import whyChoose1 from "@/assets/why-choose-1.jpg";
+import whyChoose2 from "@/assets/why-choose-2.png";
+import whyChoose3 from "@/assets/why-choose-3.jpg";
+
 export const WhyChooseSection = () => {
   return (
     <section className="py-20 bg-background">
@@ -29,25 +33,25 @@ export const WhyChooseSection = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <img 
-                src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=300&fit=crop" 
-                alt="Professional chef cooking"
+                src={whyChoose1}
+                alt="Grease trap equipment"
                 className="w-full h-56 object-cover rounded-lg"
               />
               <img 
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=250&fit=crop" 
-                alt="Grease trap maintenance"
+                src={whyChoose3}
+                alt="In-ground grease trap installation"
                 className="w-full h-48 object-cover rounded-lg"
               />
             </div>
             <div className="space-y-4 pt-8">
               <img 
-                src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=400&h=250&fit=crop" 
-                alt="Kitchen cleaning service"
+                src={whyChoose2}
+                alt="Grease trap cutaway view"
                 className="w-full h-48 object-cover rounded-lg"
               />
               <img 
-                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop" 
-                alt="Commercial kitchen equipment"
+                src={whyChoose1}
+                alt="Professional grease trap service"
                 className="w-full h-56 object-cover rounded-lg"
               />
             </div>
