@@ -1,3 +1,7 @@
+import mainImage from "@/assets/about-grease-trap-main.jpg";
+import manholeImage from "@/assets/about-manhole-cover.jpg";
+import equipmentImage from "@/assets/about-equipment.jpg";
+
 export const AboutSection = () => {
   return (
     <section className="py-20 bg-background">
@@ -5,35 +9,34 @@ export const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Images Grid */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=300&fit=crop" 
-                  alt="Grease trap cleaning"
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=200&fit=crop" 
-                  alt="Restaurant kitchen"
-                  className="w-full h-32 object-cover rounded-lg"
-                />
-              </div>
-              <div className="space-y-4 pt-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=400&h=200&fit=crop" 
-                  alt="Kitchen cleaning"
-                  className="w-full h-32 object-cover rounded-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=400&h=300&fit=crop" 
-                  alt="Professional service"
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-              </div>
+            {/* Main large image */}
+            <div className="relative">
+              <img 
+                src={mainImage}
+                alt="Open grease trap showing internal mechanism"
+                className="w-full h-[500px] object-cover rounded-lg"
+              />
             </div>
             
-            {/* Years Badge */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[hsl(45,100%,70%)] p-8 rounded-lg shadow-2xl text-center">
+            {/* Two smaller images positioned over the main image */}
+            <div className="absolute top-4 right-4 w-48 h-48">
+              <img 
+                src={manholeImage}
+                alt="Commercial manhole cover"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            <div className="absolute bottom-20 right-4 w-56 h-56">
+              <img 
+                src={equipmentImage}
+                alt="Grease trap cleaning equipment"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            {/* Years Badge - positioned over images */}
+            <div className="absolute left-8 bottom-8 bg-[hsl(45,100%,70%)] p-8 rounded-lg shadow-2xl text-center z-10">
               <div className="text-5xl font-bold text-primary">25<span className="text-3xl">+</span></div>
               <div className="text-sm font-semibold text-primary mt-1">Years Of Experience</div>
             </div>
@@ -51,43 +54,47 @@ export const AboutSection = () => {
               At Elitec Groups, we offer flexible, stress-free grease trap cleaning and preventive maintenance services tailored to the needs of restaurants and food processing facilities. Our expert team ensures every job is done thoroughly and on time — so you can focus on your business, not your drains.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-8 mb-6">
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg className="w-8 h-8 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
                 </svg>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">Experienced team</h3>
+                  <h3 className="font-bold text-primary text-lg">Experienced team</h3>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg className="w-8 h-8 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">Weekly, Biweekly, or On-Demand</h3>
+                  <h3 className="font-bold text-primary text-lg">Weekly, Biweekly, or On-Demand</h3>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg className="w-8 h-8 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">Complete Service Solutions</h3>
+                  <h3 className="font-bold text-primary text-lg">Complete Service Solutions</h3>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <svg className="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg className="w-8 h-8 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">Book, Manage & Track Services Online</h3>
+                  <h3 className="font-bold text-primary text-lg">Book, Manage & Track Services Online</h3>
                 </div>
               </div>
             </div>
+
+            {/* Yellow decorative line */}
+            <div className="w-full h-1 bg-[hsl(45,100%,70%)] rounded-full"></div>
           </div>
         </div>
       </div>
