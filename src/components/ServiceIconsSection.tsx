@@ -5,9 +5,20 @@ export const ServiceIconsSection = () => {
     {
       title: "Grease Trap Cleaning",
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
-          <path d="M7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/>
+        <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 100 100">
+          {/* Person */}
+          <circle cx="20" cy="25" r="8" />
+          <path d="M20 35 L20 55 M20 42 L12 38 M20 42 L28 38 M20 55 L12 70 M20 55 L28 70" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round"/>
+          
+          {/* Truck */}
+          <rect x="45" y="40" width="35" height="20" rx="2"/>
+          <rect x="75" y="45" width="10" height="15" rx="2"/>
+          <circle cx="55" cy="62" r="5"/>
+          <circle cx="75" cy="62" r="5"/>
+          
+          {/* Grease trap under */}
+          <ellipse cx="25" cy="75" rx="15" ry="5" opacity="0.7"/>
+          <path d="M15 75 Q25 70 35 75" stroke="currentColor" strokeWidth="2" fill="none"/>
         </svg>
       ),
       slug: "grease-trap-cleaning",
@@ -16,8 +27,14 @@ export const ServiceIconsSection = () => {
     {
       title: "Grease Trap Replacement",
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65z"/>
+        <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 100 100">
+          {/* Wrench tilted */}
+          <path d="M35 25 L45 35 L40 40 L50 50 L45 55 L35 45 L30 50 L20 40 L25 35 Z" />
+          <rect x="48" y="48" width="35" height="12" rx="2" transform="rotate(45 65 54)"/>
+          
+          {/* Pipe/trap element */}
+          <path d="M55 70 L55 85 L75 85 L75 70" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="65" cy="72" r="4"/>
         </svg>
       ),
       slug: "grease-trap-repair",
@@ -26,8 +43,23 @@ export const ServiceIconsSection = () => {
     {
       title: "One-Stop Grease Trap Repair Services",
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+        <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 100 100">
+          {/* Person */}
+          <circle cx="30" cy="25" r="8" />
+          <path d="M30 35 L30 55 M30 42 L22 38 M30 42 L38 38 M30 55 L22 70 M30 55 L38 70" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round"/>
+          
+          {/* Toolbox */}
+          <rect x="55" y="50" width="30" height="20" rx="2"/>
+          <rect x="63" y="45" width="14" height="5" rx="1"/>
+          <line x1="55" y1="60" x2="85" y2="60" stroke="currentColor" strokeWidth="2"/>
+          <circle cx="62" cy="60" r="2"/>
+          <circle cx="78" cy="60" r="2"/>
+          
+          {/* Building/backdrop */}
+          <rect x="60" y="20" width="25" height="25" rx="1" opacity="0.6"/>
+          <line x1="65" y1="20" x2="65" y2="45" stroke="currentColor" strokeWidth="1"/>
+          <line x1="72" y1="20" x2="72" y2="45" stroke="currentColor" strokeWidth="1"/>
+          <line x1="79" y1="20" x2="79" y2="45" stroke="currentColor" strokeWidth="1"/>
         </svg>
       ),
       slug: "grease-trap-installation",
@@ -36,8 +68,15 @@ export const ServiceIconsSection = () => {
     {
       title: "Technical Assistance",
       icon: (
-        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+        <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 100 100">
+          {/* Gear */}
+          <path d="M50 20 L55 35 L70 35 L58 45 L63 60 L50 50 L37 60 L42 45 L30 35 L45 35 Z"/>
+          <circle cx="50" cy="45" r="12"/>
+          <circle cx="50" cy="45" r="6" fill="none" stroke="currentColor" strokeWidth="3"/>
+          
+          {/* Wrench overlapping */}
+          <path d="M60 55 L75 70 M75 70 L78 67 M75 70 L72 73" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="62" cy="57" r="5" fill="none" stroke="currentColor" strokeWidth="4"/>
         </svg>
       ),
       slug: "technical-assistance",
@@ -57,17 +96,17 @@ export const ServiceIconsSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <Link 
               key={index}
               to={`/services/${service.slug}`}
               className="group text-center"
             >
-              <div className={`${service.bgColor} w-40 h-40 mx-auto rounded-full flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-lg`}>
+              <div className={`${service.bgColor} w-48 h-48 mx-auto rounded-full flex items-center justify-center mb-6 transition-transform group-hover:scale-110 shadow-xl`}>
                 {service.icon}
               </div>
-              <h3 className="text-lg font-bold text-primary group-hover:text-accent transition-colors">
+              <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors px-2">
                 {service.title}
               </h3>
             </Link>
