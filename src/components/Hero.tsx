@@ -23,13 +23,13 @@ export const Hero = () => {
           <p className="text-accent text-sm md:text-base font-semibold mb-4 uppercase tracking-wide">
             Commercial Grease Trap
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-navy leading-tight">
             Cleaning &<br />Maintenance
           </h1>
           
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <Link to="/services">
-              <Button size="lg" className="gap-2 rounded-full px-8 bg-accent hover:bg-accent/90 text-white font-semibold">
+              <Button size="lg" className="gap-2 rounded-full px-8 bg-accent hover:bg-secondary text-white font-semibold">
                 Our Services
               </Button>
             </Link>
