@@ -1,41 +1,22 @@
-import mainImage from "@/assets/about-grease-trap-main.jpg";
-import manholeImage from "@/assets/about-manhole-cover.jpg";
-import equipmentImage from "@/assets/about-equipment.jpg";
+import aboutImage from "@/assets/about-main.png";
 
 export const AboutSection = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left - Images Grid */}
+          {/* Left - Single Image */}
           <div className="relative">
-            {/* Main large image */}
+            {/* Main image */}
             <div className="relative">
               <img 
-                src={mainImage}
-                alt="Open grease trap showing internal mechanism"
-                className="w-full h-[500px] object-cover rounded-lg"
+                src={aboutImage}
+                alt="Grease trap internal components and mechanism"
+                className="w-full h-[500px] object-contain rounded-lg bg-white"
               />
             </div>
             
-            {/* Two smaller images positioned over the main image */}
-            <div className="absolute top-4 right-4 w-48 h-48">
-              <img 
-                src={manholeImage}
-                alt="Commercial manhole cover"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
-              />
-            </div>
-            
-            <div className="absolute bottom-20 right-4 w-56 h-56">
-              <img 
-                src={equipmentImage}
-                alt="Grease trap cleaning equipment"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
-              />
-            </div>
-            
-            {/* Years Badge - positioned over images */}
+            {/* Years Badge - positioned at bottom */}
             <div className="absolute left-8 bottom-8 bg-[hsl(45,100%,70%)] p-8 rounded-lg shadow-2xl text-center z-10">
               <div className="text-5xl font-bold text-primary">25<span className="text-3xl">+</span></div>
               <div className="text-sm font-semibold text-primary mt-1">Years Of Experience</div>
