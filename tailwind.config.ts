@@ -39,6 +39,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        yellow: {
+          DEFAULT: "hsl(var(--yellow))",
+          foreground: "hsl(var(--yellow-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -47,13 +51,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        trust: {
-          bg: "hsl(var(--trust-bg))",
-        },
-        hero: {
-          from: "hsl(var(--hero-gradient-start))",
-          to: "hsl(var(--hero-gradient-end))",
-        },
+        navy: "hsl(var(--navy))",
+        cyan: "hsl(var(--cyan))",
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
