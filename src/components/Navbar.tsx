@@ -1,17 +1,24 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const location = useLocation();
 
   const navigation = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Offers", href: "/offers" },
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Contact", href: "/contact" },
+  ];
+
+  const resourcesItems = [
+    { name: "Blog", href: "/blog" },
+    { name: "FAQ's", href: "/faqs" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -20,35 +27,77 @@ export const Navbar = () => {
     <nav className="bg-background/95 backdrop-blur sticky top-0 z-50 border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold">
-              <span className="text-primary">ELITEC</span> <span className="text-accent">GROUP</span>
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="flex items-center">
+              {/* Diamond logo shapes */}
+              <div className="relative w-10 h-10">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-5 h-5 bg-accent rotate-45 absolute left-0"></div>
+                  <div className="w-5 h-5 bg-primary rotate-45 absolute right-0"></div>
+                </div>
+              </div>
+              <div className="text-2xl font-bold ml-2">
+                <span className="text-accent">ELITEC</span> <span className="text-primary">GROUP</span>
+              </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-secondary ${
-                  isActive(item.href) ? "text-secondary" : "text-foreground"
+                className={`text-sm font-semibold transition-colors hover:text-accent ${
+                  isActive(item.href) ? "text-accent" : "text-primary"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button size="sm" className="gap-2 bg-accent hover:bg-accent/90">
-              <Phone className="h-4 w-4" />
-              Call Us
-            </Button>
+            
+            {/* Resources Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setResourcesOpen(true)}
+                onMouseLeave={() => setResourcesOpen(false)}
+                className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-accent transition-colors"
+              >
+                Resources
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              
+              {resourcesOpen && (
+                <div
+                  onMouseEnter={() => setResourcesOpen(true)}
+                  onMouseLeave={() => setResourcesOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-40 bg-background border border-border rounded-lg shadow-lg py-2 z-50"
+                >
+                  {resourcesItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="block px-4 py-2 text-sm font-medium text-primary hover:bg-accent/10 hover:text-accent transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link to="/service-request">
+              <Button size="default" className="gap-2 bg-primary hover:bg-primary/90 text-white font-semibold">
+                Service Request
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md text-foreground hover:bg-muted"
+            className="lg:hidden p-2 rounded-md text-foreground hover:bg-muted"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -56,7 +105,7 @@ export const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div className="lg:hidden py-4 space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -64,18 +113,35 @@ export const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                   isActive(item.href)
-                    ? "bg-secondary text-secondary-foreground"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-accent/10 text-accent"
+                    : "text-primary hover:bg-muted"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+            
+            {/* Mobile Resources */}
+            <div className="px-4">
+              <div className="text-sm font-semibold text-primary mb-2">Resources</div>
+              {resourcesItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block pl-4 py-2 text-sm text-primary hover:text-accent"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            
             <div className="px-4 pt-2">
-              <Button className="w-full gap-2">
-                <Phone className="h-4 w-4" />
-                Call Us
-              </Button>
+              <Link to="/service-request" onClick={() => setIsOpen(false)}>
+                <Button className="w-full gap-2 bg-primary hover:bg-primary/90">
+                  Service Request
+                </Button>
+              </Link>
             </div>
           </div>
         )}
