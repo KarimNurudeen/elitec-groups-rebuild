@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import logo from "@/assets/logo.png";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,19 +29,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="flex items-center">
-              {/* Diamond logo shapes */}
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-5 h-5 bg-accent rotate-45 absolute left-0"></div>
-                  <div className="w-5 h-5 bg-primary rotate-45 absolute right-0"></div>
-                </div>
-              </div>
-              <div className="text-2xl font-bold ml-2">
-                <span className="text-accent">ELITEC</span> <span className="text-primary">GROUP</span>
-              </div>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Elitec Group Inc." className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
