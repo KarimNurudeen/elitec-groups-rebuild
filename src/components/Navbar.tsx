@@ -27,10 +27,10 @@ export const Navbar = () => {
   return (
     <nav className="bg-background/95 backdrop-blur sticky top-0 z-50 border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-28">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Elitec Group Inc." className="h-12 w-auto" />
+            <img src={logo} alt="Elitec Group Inc." className="h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
