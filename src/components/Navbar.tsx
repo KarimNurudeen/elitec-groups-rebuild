@@ -40,7 +40,7 @@ export const Navbar = () => {
                 key={item.name}
                 to={item.href}
                 className={`text-sm font-semibold transition-colors hover:text-accent ${
-                  isActive(item.href) ? "text-accent" : "text-primary"
+                  isActive(item.href) ? "text-accent" : "text-navy"
                 }`}
               >
                 {item.name}
@@ -52,7 +52,7 @@ export const Navbar = () => {
               <button
                 onMouseEnter={() => setResourcesOpen(true)}
                 onMouseLeave={() => setResourcesOpen(false)}
-                className="flex items-center gap-1 text-sm font-semibold text-primary hover:text-accent transition-colors"
+                className="flex items-center gap-1 text-sm font-semibold text-navy hover:text-accent transition-colors"
               >
                 Resources
                 <ChevronDown className="h-4 w-4" />
@@ -68,7 +68,7 @@ export const Navbar = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className="block px-4 py-2 text-sm font-medium text-primary hover:bg-accent/10 hover:text-accent transition-colors"
+                      className="block px-4 py-2 text-sm font-medium text-navy hover:bg-accent/10 hover:text-accent transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -104,7 +104,7 @@ export const Navbar = () => {
                 className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                   isActive(item.href)
                     ? "bg-accent/10 text-accent"
-                    : "text-primary hover:bg-muted"
+                    : "text-navy hover:bg-muted"
                 }`}
               >
                 {item.name}
@@ -113,13 +113,13 @@ export const Navbar = () => {
             
             {/* Mobile Resources */}
             <div className="px-4">
-              <div className="text-sm font-semibold text-primary mb-2">Resources</div>
+              <div className="text-sm font-semibold text-navy mb-2">Resources</div>
               {resourcesItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block pl-4 py-2 text-sm text-primary hover:text-accent"
+                  className="block pl-4 py-2 text-sm text-navy hover:text-accent"
                 >
                   {item.name}
                 </Link>
