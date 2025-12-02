@@ -77,10 +77,13 @@ export const Navbar = () => {
               )}
             </div>
 
-            <Link to="/service-request">
-              <Button size="default" className="gap-2 bg-primary hover:bg-primary/90 text-white font-semibold">
-                Service Request
-              </Button>
+            <Link
+              to="/service-request"
+              className={`text-sm font-semibold transition-colors hover:text-accent ${
+                isActive('/service-request') ? "text-accent" : "text-navy"
+              }`}
+            >
+              Service Request
             </Link>
           </div>
 
@@ -126,13 +129,17 @@ export const Navbar = () => {
               ))}
             </div>
             
-            <div className="px-4 pt-2">
-              <Link to="/service-request" onClick={() => setIsOpen(false)}>
-                <Button className="w-full gap-2 bg-primary hover:bg-primary/90">
-                  Service Request
-                </Button>
-              </Link>
-            </div>
+            <Link
+              to="/service-request"
+              onClick={() => setIsOpen(false)}
+              className={`block px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                isActive('/service-request')
+                  ? "bg-accent/10 text-accent"
+                  : "text-navy hover:bg-muted"
+              }`}
+            >
+              Service Request
+            </Link>
           </div>
         )}
       </div>
