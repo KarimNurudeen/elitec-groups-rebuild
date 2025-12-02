@@ -12,7 +12,7 @@ export const WhyChooseSection = () => {
             <p className="text-accent text-sm font-semibold mb-4 uppercase tracking-wide">
               Why Choose us
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6 leading-tight">
               We Keep Kitchens Clean, Compliant, and Operational Always
             </h2>
             <p className="text-foreground/80 mb-8 leading-relaxed">
@@ -21,10 +21,10 @@ export const WhyChooseSection = () => {
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-primary mb-2">Commercial Kitchen Compliance Cleaning</h3>
+                <h3 className="text-xl font-bold text-navy mb-2">Commercial Kitchen Compliance Cleaning</h3>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-primary mb-2">Routine & Emergency Services</h3>
+                <h3 className="text-xl font-bold text-navy mb-2">Routine & Emergency Services</h3>
               </div>
             </div>
           </div>
