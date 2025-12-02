@@ -104,7 +104,7 @@ const Services = () => {
                       </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-secondary group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-bold text-navy group-hover:text-primary transition-colors">
                         {service.title}
                       </h3>
                     </div>
@@ -112,6 +112,93 @@ const Services = () => {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Appointment Section */}
+      <section className="py-20 bg-cover bg-center relative" style={{ backgroundImage: `url(${serviceDrain})` }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-2xl ml-auto bg-white p-10 rounded-lg shadow-2xl">
+            <p className="text-primary text-sm font-semibold mb-2 uppercase tracking-wide">
+              Need urgent help?
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-8">
+              Request an emergency service or schedule an appointment today.
+            </h2>
+
+            <form className="space-y-4">
+              <div className="relative">
+                <input 
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              
+              <div className="relative">
+                <input 
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <input 
+                  type="date"
+                  placeholder="Date"
+                  className="h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                
+                <input 
+                  type="text"
+                  placeholder="Subject"
+                  className="h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <button 
+                type="submit"
+                className="w-full bg-yellow hover:bg-yellow/90 text-navy font-bold h-14 text-lg rounded transition-colors"
+              >
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Boxes */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-0 max-w-5xl mx-auto shadow-lg">
+            {/* Track Service Area */}
+            <div className="bg-secondary text-white p-12 flex flex-col justify-between">
+              <div>
+                <h3 className="text-3xl font-bold mb-4">Track Your Service Area</h3>
+                <p className="text-white/90">
+                  We provide specialized grease trap cleaning for restaurants and food facilities of all sizes.
+                </p>
+              </div>
+              <button className="mt-8 w-12 h-12 bg-yellow rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                <span className="text-secondary text-xl">→</span>
+              </button>
+            </div>
+
+            {/* Request Quote */}
+            <div className="bg-yellow text-navy p-12 flex flex-col justify-between">
+              <div>
+                <h3 className="text-3xl font-bold mb-4">Request a Quote</h3>
+                <p className="text-navy/90">
+                  Get a fast, no-obligation quote for professional grease trap cleaning tailored to your facility's needs.
+                </p>
+              </div>
+              <button className="mt-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                <span className="text-white text-xl">→</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
