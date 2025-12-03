@@ -48,31 +48,32 @@ export const Navbar = () => {
             ))}
             
             {/* Resources Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setResourcesOpen(true)}
+              onMouseLeave={() => setResourcesOpen(false)}
+            >
               <button
-                onMouseEnter={() => setResourcesOpen(true)}
-                onMouseLeave={() => setResourcesOpen(false)}
                 className="flex items-center gap-1 text-sm font-semibold text-navy hover:text-accent transition-colors"
               >
                 Resources
-                <ChevronDown className="h-4 w-4" />
+                <ChevronDown className={`h-4 w-4 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {resourcesOpen && (
-                <div
-                  onMouseEnter={() => setResourcesOpen(true)}
-                  onMouseLeave={() => setResourcesOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-40 bg-background border border-border rounded-lg shadow-lg py-2 z-50"
-                >
-                  {resourcesItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className="block px-4 py-2 text-sm font-medium text-navy hover:bg-accent/10 hover:text-accent transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-40 bg-white border border-border rounded-lg shadow-lg py-2">
+                    {resourcesItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        onClick={() => setResourcesOpen(false)}
+                        className="block px-4 py-2 text-sm font-medium text-navy hover:bg-accent/10 hover:text-accent transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
