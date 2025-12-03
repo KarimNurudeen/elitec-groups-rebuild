@@ -6,6 +6,8 @@ import { ServiceIconsSection } from "@/components/ServiceIconsSection";
 import { WhyChooseSection } from "@/components/WhyChooseSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { AppointmentSection } from "@/components/AppointmentSection";
+import { NewsFeedSection } from "@/components/NewsFeedSection";
+import { CTASection } from "@/components/CTASection";
 
 const Index = () => {
   return (
@@ -17,6 +19,8 @@ const Index = () => {
       <WhyChooseSection />
       <NewsletterSection />
       <AppointmentSection />
+      <NewsFeedSection />
+      <CTASection />
       <Footer />
     </div>
   );
