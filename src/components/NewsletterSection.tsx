@@ -21,15 +21,50 @@ export const NewsletterSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Left - Logo */}
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center">
             <div className="text-center">
-              <div className="mb-4 flex justify-center">
-                <div className="text-4xl font-bold">
-                  <span className="text-primary">ELITEC</span>{" "}
-                  <span className="text-accent">GROUP</span>
-                </div>
+              {/* Logo Geometric Design */}
+              <div className="mb-8 flex justify-center items-center">
+                <svg 
+                  width="400" 
+                  height="120" 
+                  viewBox="0 0 400 120" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full max-w-[400px] h-auto"
+                >
+                  {/* Horizontal line */}
+                  <line 
+                    x1="15" 
+                    y1="60" 
+                    x2="385" 
+                    y2="60" 
+                    stroke="#00baee" 
+                    strokeWidth="2.5"
+                  />
+                  {/* Left diamond - light blue solid */}
+                  <path 
+                    d="M60 30 L90 60 L60 90 L30 60 Z" 
+                    fill="#00baee"
+                  />
+                  {/* Middle diamond - dark blue solid */}
+                  <path 
+                    d="M170 30 L200 60 L170 90 L140 60 Z" 
+                    fill="#004976"
+                  />
+                  {/* Right diamond - light blue outline */}
+                  <path 
+                    d="M280 30 L310 60 L280 90 L250 60 Z" 
+                    fill="none"
+                    stroke="#00baee"
+                    strokeWidth="2.5"
+                  />
+                </svg>
               </div>
-              <p className="text-primary text-sm font-semibold">INC.</p>
+              {/* Company Name */}
+              <h1 className="text-6xl md:text-7xl font-bold text-[#00baee] tracking-tight leading-tight">
+                ELITEC GROUP INC.
+              </h1>
             </div>
           </div>
 

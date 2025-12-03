@@ -3,30 +3,31 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { User, Mail, CalendarDays as CalendarIcon } from "lucide-react";
 import { services } from "@/data/services";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    address: "",
+    date: undefined as Date | undefined,
     service: "",
-    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.name || !formData.email || !formData.service) {
+    if (!formData.name || !formData.email) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
@@ -35,8 +36,6 @@ const Contact = () => {
       return;
     }
 
-    // Here you would typically send to an API endpoint
-    // For now, we'll show a success message
     toast({
       title: "Request Submitted!",
       description: "We'll get back to you within 24 hours.",
@@ -46,10 +45,8 @@ const Contact = () => {
     setFormData({
       name: "",
       email: "",
-      phone: "",
-      address: "",
+      date: undefined,
       service: "",
-      message: "",
     });
   };
 
@@ -57,178 +54,170 @@ const Contact = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16">
+      {/* Header Section */}
+      <div className="bg-navy text-white py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg text-primary-foreground/90 max-w-2xl">
-            Get in touch with our team for service requests, quotes, or general inquiries
-          </p>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-center">Contact</h1>
+          <div className="text-center text-white/80">
+            <span>Home</span> <span className="mx-2">{">>"}</span> <span>Contact</span>
+          </div>
         </div>
       </div>
 
-      <section className="py-16 flex-grow">
+      {/* Get in touch section */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Contact Information */}
-            <div className="space-y-6">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                      <p className="text-sm text-muted-foreground">Mon-Fri, 8am-6pm</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-12">
+            Get in touch with us
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Email Card */}
+            <Card className="border border-gray-200 shadow-sm">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-navy mb-2">Email</h3>
+                <p className="text-muted-foreground">elitecgroups@gmail.com</p>
+              </CardContent>
+            </Card>
 
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-muted-foreground">info@elitecgroups.com</p>
-                      <p className="text-sm text-muted-foreground">We reply within 24 hours</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Phone Card */}
+            <Card className="border border-gray-200 shadow-sm">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-navy mb-2">Phone Number</h3>
+                <p className="text-muted-foreground">+1 416 273 8471</p>
+              </CardContent>
+            </Card>
 
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 p-3 rounded-lg">
-                      <MapPin className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Location</h3>
-                      <p className="text-muted-foreground">123 Business St</p>
-                      <p className="text-muted-foreground">City, State 12345</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Location Card */}
+            <Card className="border border-gray-200 shadow-sm">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-navy mb-2">Location</h3>
+                <p className="text-muted-foreground">
+                  1355 Wilson Av. Unit4,<br />
+                  Toronto, ON., M3M 1H7
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 p-3 rounded-lg">
-                      <Clock className="h-6 w-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Emergency Service</h3>
-                      <p className="text-muted-foreground">24/7 Available</p>
-                      <p className="text-sm text-muted-foreground">Call anytime for urgent needs</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+      {/* Map and Form Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left - Google Map */}
+            <div className="w-full h-[500px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.3198896038817!2d-79.47590448450068!3d43.72924157911984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b32e0c0b0c0c1%3A0x4b0b5b5b5b5b5b5b!2s1355%20Wilson%20Ave%20%234%2C%20North%20York%2C%20ON%20M3M%201H7!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-lg"
+              ></iframe>
             </div>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <Card>
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">Request a Service</h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">
-                          Name <span className="text-destructive">*</span>
-                        </Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="Your full name"
-                          required
-                        />
-                      </div>
+            {/* Right - Contact Form */}
+            <div>
+              <h2 className="text-4xl font-bold text-navy mb-8">Let's have a chat</h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
+                <div className="space-y-2">
+                  <Label htmlFor="name">Enter your name</Label>
+                  <div className="relative">
+                    <Input
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Enter your name"
+                      className="pr-10"
+                      required
+                    />
+                    <User className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  </div>
+                </div>
 
-                      <div className="space-y-2">
-                        <Label htmlFor="email">
-                          Email <span className="text-destructive">*</span>
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="your@email.com"
-                          required
-                        />
-                      </div>
-                    </div>
+                {/* Email Field */}
+                <div className="space-y-2">
+                  <Label htmlFor="email">Enter your email</Label>
+                  <div className="relative">
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="Enter your email"
+                      className="pr-10"
+                      required
+                    />
+                    <Mail className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  </div>
+                </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+1 (555) 123-4567"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="service">
-                          Service Needed <span className="text-destructive">*</span>
-                        </Label>
-                        <Select
-                          value={formData.service}
-                          onValueChange={(value) => setFormData({ ...formData, service: value })}
-                          required
-                        >
-                          <SelectTrigger id="service">
-                            <SelectValue placeholder="Select a service" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {services.map((service) => (
-                              <SelectItem key={service.id} value={service.slug}>
-                                {service.title}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="address">Address</Label>
-                      <Input
-                        id="address"
-                        value={formData.address}
-                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                        placeholder="Service location address"
+                {/* Date Field */}
+                <div className="space-y-2">
+                  <Label>Date</Label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal pl-10",
+                          !formData.date && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="absolute left-3 h-4 w-4" />
+                        {formData.date ? (
+                          format(formData.date, "PPP")
+                        ) : (
+                          <span>Choose Date</span>
+                        )}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0">
+                      <Calendar
+                        mode="single"
+                        selected={formData.date}
+                        onSelect={(date) => setFormData({ ...formData, date })}
+                        initialFocus
                       />
-                    </div>
+                    </PopoverContent>
+                  </Popover>
+                </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us about your needs..."
-                        rows={5}
-                      />
-                    </div>
+                {/* Service Dropdown */}
+                <div className="space-y-2">
+                  <Label htmlFor="service">Service</Label>
+                  <Select
+                    value={formData.service}
+                    onValueChange={(value) => setFormData({ ...formData, service: value })}
+                  >
+                    <SelectTrigger id="service">
+                      <SelectValue placeholder="—Please choose an option—" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {services.map((service) => (
+                        <SelectItem key={service.id} value={service.slug}>
+                          {service.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-                    <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90">
-                      Submit Request
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+                {/* Submit Button */}
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-yellow text-navy hover:bg-yellow/90 font-semibold"
+                >
+                  Submit Request
+                </Button>
+              </form>
             </div>
           </div>
         </div>

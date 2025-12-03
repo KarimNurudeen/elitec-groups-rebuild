@@ -2,6 +2,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Droplets, Settings, Wrench, Headset } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import serviceCleaning from "@/assets/service-cleaning.jpg";
 import serviceInstallation from "@/assets/service-installation.jpg";
 import serviceRepair from "@/assets/service-repair.jpg";
@@ -61,6 +64,39 @@ const servicesData = [
 ];
 
 const Services = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    subject: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.date || !formData.subject) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    toast({
+      title: "Request Submitted!",
+      description: "We'll contact you shortly to confirm your appointment.",
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      date: "",
+      subject: "",
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -128,11 +164,14 @@ const Services = () => {
               Request an emergency service or schedule an appointment today.
             </h2>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="relative">
                 <input 
                   type="text"
                   placeholder="Enter your name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
                   className="w-full h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
@@ -141,6 +180,9 @@ const Services = () => {
                 <input 
                   type="email"
                   placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
                   className="w-full h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
@@ -148,15 +190,33 @@ const Services = () => {
               <div className="grid grid-cols-2 gap-4">
                 <input 
                   type="date"
-                  placeholder="Date"
+                  placeholder="mm/dd/yyyy"
+                  value={formData.date}
+                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                  required
                   className="h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 
-                <input 
-                  type="text"
-                  placeholder="Subject"
-                  className="h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
-                />
+                <Select 
+                  value={formData.subject} 
+                  onValueChange={(value) => setFormData({ ...formData, subject: value })}
+                  required
+                >
+                  <SelectTrigger className="h-14 px-4 bg-muted/30 border-0 rounded focus:ring-2 focus:ring-primary">
+                    <SelectValue placeholder="Subject" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white">
+                    <SelectItem value="grease-trap-cleaning">Grease Trap Cleaning</SelectItem>
+                    <SelectItem value="grease-trap-replacement">Grease Trap Replacement</SelectItem>
+                    <SelectItem value="grease-trap-repair">Grease Trap Repair</SelectItem>
+                    <SelectItem value="technical-assistance">Technical Assistance</SelectItem>
+                    <SelectItem value="drain-snaking">Drain Snaking Services</SelectItem>
+                    <SelectItem value="commercial-plumbing">Commercial Plumbing</SelectItem>
+                    <SelectItem value="emergency-service">Emergency Service</SelectItem>
+                    <SelectItem value="scheduled-maintenance">Scheduled Maintenance</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <button 
