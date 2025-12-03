@@ -113,7 +113,7 @@ export const AppointmentSection = () => {
 
               <Button 
                 type="submit"
-                className="w-full bg-accent hover:bg-accent/90 text-primary font-bold h-14 text-base rounded-md"
+                className="w-full bg-accent hover:bg-accent/90 text-[#004976] font-bold h-14 text-base rounded-md"
               >
                 Submit Request
               </Button>
