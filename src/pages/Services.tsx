@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Droplets, Settings, Wrench, Headset } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+// Select component import removed — appointment form replaced with CTAs
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import serviceCleaning from "@/assets/service-cleaning.jpg";
@@ -158,74 +158,23 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl ml-auto bg-white p-10 rounded-lg shadow-2xl">
             <p className="text-primary text-sm font-semibold mb-2 uppercase tracking-wide">
-              Need urgent help?
+              Facing a grease emergency?
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-8">
-              Request an emergency service or schedule an appointment today.
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
+              Rapid response, clear pricing — we get things flowing fast.
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="relative">
-                <input 
-                  type="text"
-                  placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  className="w-full h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-              
-              <div className="relative">
-                <input 
-                  type="email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  className="w-full h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
+            <div className="space-y-4">
+              <p className="text-lg text-navy/80">
+                Overflowing trap or sudden blockage? Our Rapid Response Team handles urgent issues same-day with transparent, fixed-rate servicing.
+              </p>
 
-              <div className="grid grid-cols-2 gap-4">
-                <input 
-                  type="date"
-                  placeholder="mm/dd/yyyy"
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  required
-                  className="h-14 px-4 bg-muted/30 border-0 rounded focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                
-                <Select 
-                  value={formData.subject} 
-                  onValueChange={(value) => setFormData({ ...formData, subject: value })}
-                  required
-                >
-                  <SelectTrigger className="h-14 px-4 bg-muted/30 border-0 rounded focus:ring-2 focus:ring-primary">
-                    <SelectValue placeholder="Subject" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-white">
-                    <SelectItem value="grease-trap-cleaning">Grease Trap Cleaning</SelectItem>
-                    <SelectItem value="grease-trap-replacement">Grease Trap Replacement</SelectItem>
-                    <SelectItem value="grease-trap-repair">Grease Trap Repair</SelectItem>
-                    <SelectItem value="technical-assistance">Technical Assistance</SelectItem>
-                    <SelectItem value="drain-snaking">Drain Snaking Services</SelectItem>
-                    <SelectItem value="commercial-plumbing">Commercial Plumbing</SelectItem>
-                    <SelectItem value="emergency-service">Emergency Service</SelectItem>
-                    <SelectItem value="scheduled-maintenance">Scheduled Maintenance</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
+              <div className="flex flex-wrap gap-4 mt-4">
+                <Link to="/contact" className="inline-block px-6 py-3 bg-yellow hover:bg-yellow/90 text-navy font-bold rounded-md">
+                  Contact Now
+                </Link>
               </div>
-
-              <button 
-                type="submit"
-                className="w-full bg-yellow hover:bg-yellow/90 text-navy font-bold h-14 text-lg rounded transition-colors"
-              >
-                Submit Request
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </section>

@@ -171,7 +171,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-300 mt-12 pt-8 text-center text-sm text-navy">
-          <p>Copyright ©{new Date().getFullYear()} Elitec Groups Inc. All Rights Reserved | Designed by: Blueticks Technology</p>
+          <p>Copyright ©{new Date().getFullYear()} Elitec Groups Inc. All Rights Reserved | Designed by: Servers World Network</p>
         </div>
       </div>
 

@@ -13,19 +13,19 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "Hello World!",
-      date: "June 26, 2025",
-      author: "Admin",
+      title: "Hello!",
+      date: "December 3, 2025",
+      author: "Servers World network",
       comments: 1,
-      excerpt: "Welcome to WordPress. This is your first post. Edit or delete it, then start writing!",
+      excerpt: "Welcome elitec groups, we offer quality services tailored to your needs!",
       image: blog1,
       slug: "hello-world"
     },
     {
       id: 2,
       title: "How Often Should You Schedule Professional Grease Trap Cleaning?",
-      date: "July 21, 2020",
-      author: "Admin",
+      date: "December 3, 2025",
+      author: "Servers World network",
       comments: 0,
       excerpt: "Regular grease trap cleaning is essential for maintaining compliance and preventing costly backups. Learn about the recommended cleaning schedule for your facility.",
       image: blog2,
@@ -34,8 +34,8 @@ const Blog = () => {
     {
       id: 3,
       title: "How to Keep Your Commercial Kitchen Safe and Compliant",
-      date: "July 21, 2020",
-      author: "Admin",
+      date: "December 3, 2025",
+      author: "servers world network",
       comments: 0,
       excerpt: "Discover essential tips for maintaining a safe and compliant commercial kitchen, including proper grease trap maintenance and best practices.",
       image: blog3,
@@ -47,14 +47,14 @@ const Blog = () => {
     {
       id: 2,
       title: "How Often Should You Schedule Professional",
-      date: "JULY 21, 2020",
+      date: "December 3, 2025",
       image: blog2,
       slug: "how-often-should-you-schedule-professional-grease-trap-cleaning"
     },
     {
       id: 3,
       title: "How to Keep Your Home Safe",
-      date: "JULY 21, 2020",
+      date: "December 3, 2025",
       image: blog3,
       slug: "how-to-keep-your-commercial-kitchen-safe-and-compliant"
     }
